@@ -1,4 +1,5 @@
 import './App.css';
+import CouraselDemo from './components/CouraselDemo';
 
 function App() {
   return (
@@ -6,6 +7,7 @@ function App() {
       <div className="d-btn bg-neutral text-neutral-content hover:bg-neutral-light rounded-2xl border-0">
         Hello
       </div>
+      <CouraselDemo />
     </>
   );
 }
