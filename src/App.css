@@ -1,1 +1,8 @@
 @import "tailwindcss";
+@theme {
+  --color-neutral-light: oklch(37% 0.013 285.805);
+}
+@plugin "daisyui" {
+  themes: light --default;
+  prefix: "d-";
+}
