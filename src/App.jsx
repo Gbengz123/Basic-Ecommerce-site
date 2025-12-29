@@ -1,13 +1,16 @@
 import './App.css';
-import CouraselDemo from './components/CouraselDemo';
+import { Outlet } from 'react-router';
+import NavBar from './components/NavBar';
 
 function App() {
   return (
     <>
-      <div className="d-btn bg-neutral text-neutral-content hover:bg-neutral-light rounded-2xl border-0">
-        Hello
+      <div className="h-screen w-screen min-w-[320px]">
+        <NavBar />
+        <main>
+          <Outlet />
+        </main>
       </div>
-      <CouraselDemo />
     </>
   );
 }
