@@ -5,9 +5,9 @@ import NavBar from './components/NavBar';
 function App() {
   return (
     <>
-      <div className="h-screen w-screen min-w-[320px]">
+      <div className="flex min-h-screen min-w-screen flex-col">
         <NavBar />
-        <main>
+        <main className="flex grow flex-col">
           <Outlet />
         </main>
       </div>
