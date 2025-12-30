@@ -5,7 +5,7 @@ function NavBar() {
   const activeLStyle = 'bg-neutral text-white rounded m-auto py-1 px-2';
 
   return (
-    <nav className="flex justify-between px-7 py-2 font-bold shadow sm:px-14">
+    <nav className="page-padding flex justify-between py-2 font-bold shadow sm:px-14">
       <div className="flex gap-5">
         <NavLink
           to={'/'}
