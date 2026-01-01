@@ -24,10 +24,10 @@ export default function ProductsCarousel() {
         {Array.from({ length: 10 }).map((_, index) => (
           <CarouselItem
             key={index}
-            className="h-81 w-65 pl-1 md:basis-1/2 lg:basis-1/3"
+            className="h-71 w-60 pl-1 md:basis-1/2 lg:basis-1/3"
           >
             <div className="p-1">
-              <Card className="h-80 w-full">
+              <Card className="h-70 w-full">
                 <CardContent className="flex aspect-square h-full w-full items-center justify-center">
                   <span className="text-2xl font-semibold">{index + 1}</span>
                 </CardContent>
