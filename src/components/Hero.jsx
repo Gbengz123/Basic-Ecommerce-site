@@ -23,7 +23,10 @@ function Hero() {
           Shop now
         </Link>
       </div>
-      <div className="xs:grid-cols-[repeat(7,calc(180px/4))] xs:grid-rows-[190px] xs:mt-4 mt-4 grid grow grid-cols-[repeat(7,calc(140px/4))] grid-rows-[150px] justify-center sm:mt-0 sm:mr-11 md:grid-cols-[repeat(7,calc(200px/4))] md:grid-rows-[210px]">
+      <div
+        data-testid="card display"
+        className="xs:grid-cols-[repeat(7,calc(180px/4))] xs:grid-rows-[190px] xs:mt-4 mt-4 grid grow grid-cols-[repeat(7,calc(140px/4))] grid-rows-[150px] justify-center sm:mt-0 sm:mr-11 md:grid-cols-[repeat(7,calc(200px/4))] md:grid-rows-[210px]"
+      >
         <div
           style={{
             backgroundImage: `url(${womenJacket})`,
