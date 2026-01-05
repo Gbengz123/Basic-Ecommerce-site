@@ -1,18 +1,18 @@
-import { createBrowserRouter } from 'react-router';
 import App from './App';
 import Shop from './components/Shop';
 import Home from './components/Home';
 import Cart from './components/Cart';
+import ErrorPage from './components/ErrorPage';
 
-const routes = createBrowserRouter([
+const routes = [
   {
     element: <App />,
     children: [
-      { path: '/', element: <Home /> },
+      { path: '/', element: <Home />, errorElement: <ErrorPage /> },
       { path: '/shop', element: <Shop /> },
       { path: '/cart', element: <Cart /> },
     ],
   },
-]);
+];
 
 export default routes;
