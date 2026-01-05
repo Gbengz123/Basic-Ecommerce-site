@@ -1,25 +1,31 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, beforeEach } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import App from '../App';
+import { createMemoryRouter, RouterProvider } from 'react-router';
 
-// sample function test
-describe('something truthy and falsy', () => {
-  it('true to be true', () => {
-    expect(true).toBe(true);
-  });
-
-  it('false to be false', () => {
-    expect(false).toBe(false);
-  });
-});
-
-// sample UI test
 describe('App', () => {
-  it('renders headline', () => {
-    render(<App title="React" />);
+  beforeEach(() => {
+    const router = createMemoryRouter(
+      [
+        {
+          element: <App />,
+          children: [{ path: '/', element: <div>Home page</div> }],
+        },
+      ],
+      {
+        initialEntries: ['/'],
+      },
+    );
 
-    screen.debug();
+    render(<RouterProvider router={router} />);
+  });
 
-    // check if App components renders headline
+  it('shows the navigation bar', () => {
+    const navigationBar = screen.getByRole('navigation');
+    expect(navigationBar).toBeInTheDocument();
+  });
+
+  it('renders Outlet content', () => {
+    expect(screen.getByText(/home page/i)).toBeInTheDocument();
   });
 });
