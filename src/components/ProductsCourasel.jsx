@@ -1,12 +1,12 @@
 import * as React from 'react';
 import AutoScroll from 'embla-carousel-auto-scroll';
-
 import { Card, CardContent } from '@/components/ui/card';
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
 } from '@/components/ui/carousel';
+import ProductCard from './ProductCard';
 
 export default function ProductsCarousel() {
   return (
@@ -24,14 +24,15 @@ export default function ProductsCarousel() {
         {Array.from({ length: 10 }).map((_, index) => (
           <CarouselItem
             key={index}
-            className="h-71 w-60 pl-1 md:basis-1/2 lg:basis-1/3"
+            className="h-fit w-60 pl-1 md:basis-1/2 lg:basis-1/3"
           >
             <div className="p-1">
-              <Card className="h-70 w-full">
-                <CardContent className="flex aspect-square h-full w-full items-center justify-center">
-                  <span className="text-2xl font-semibold">{index + 1}</span>
-                </CardContent>
-              </Card>
+              <ProductCard
+                name={'Gaming mouse'}
+                category={'electronics'}
+                rating={4.6}
+                price={100}
+              />
             </div>
           </CarouselItem>
         ))}
