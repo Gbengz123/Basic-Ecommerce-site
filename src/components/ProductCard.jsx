@@ -15,7 +15,15 @@ function ProductCardSkeleton() {
   );
 }
 
-function ProductCard({ category, rating, name, imgSrc, price, showSkeleton }) {
+function ProductCard({
+  category,
+  rating,
+  name,
+  imgSrc,
+  price,
+  showSkeleton,
+  ratingCount,
+}) {
   const [quantity, setQuantity] = useState(0);
 
   return (
@@ -28,7 +36,10 @@ function ProductCard({ category, rating, name, imgSrc, price, showSkeleton }) {
             className="h-45 w-full border"
           />
           <h4 className="text-xs text-zinc-600">{category}</h4>
-          <StarRating rating={rating} />
+          <div className="flex items-center gap-1">
+            <StarRating rating={rating} />
+            <span className="text-xs">{`(${ratingCount})`}</span>
+          </div>
           <h3 className="py-2 font-semibold">{name}</h3>
           <div className="flex items-center">
             <p className="font-semibold">${price}</p>
