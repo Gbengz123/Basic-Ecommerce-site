@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { PlusIcon, MinusIcon } from 'lucide-react';
 
 function StepperInput() {
-  const [value, setValue] = useState(0);
+  const [value, setValue] = useState(1);
 
   function increase() {
     if (value === 999) return;
