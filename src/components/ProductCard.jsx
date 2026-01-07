@@ -29,19 +29,15 @@ function ProductCard({
   return (
     <>
       {!showSkeleton ? (
-        <article className="flex w-56 cursor-pointer flex-col border border-zinc-200 px-3 py-1.5 text-sm transition-transform duration-100 ease-linear hover:scale-[1.01] hover:shadow sm:text-base">
-          <img
-            src={imgSrc}
-            alt="product image"
-            className="h-45 w-full border"
-          />
-          <h4 className="text-xs text-zinc-600">{category}</h4>
+        <article className="flex h-84.25 w-56 cursor-pointer flex-col border border-zinc-200 px-3 py-1.5 text-sm transition-transform duration-100 ease-linear hover:scale-[1.01] hover:shadow sm:text-base">
+          <img src={imgSrc} alt="product image" className="h-45 w-full" />
+          <h4 className="mt-2 text-xs text-zinc-600">{category}</h4>
           <div className="flex items-center gap-1">
             <StarRating rating={rating} />
             <span className="text-xs">{`(${ratingCount})`}</span>
           </div>
-          <h3 className="py-2 font-semibold">{name}</h3>
-          <div className="flex items-center">
+          <h3 className="my-3 line-clamp-2">{name}</h3>
+          <div className="mt-auto flex items-center">
             <p className="font-semibold">${price}</p>
             {quantity >= 1 ? (
               <StepperInput />
