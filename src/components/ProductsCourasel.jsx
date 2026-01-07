@@ -8,7 +8,7 @@ import {
 } from '@/components/ui/carousel';
 import ProductCard from './ProductCard';
 
-export default function ProductsCarousel() {
+export default function ProductsCarousel({ products }) {
   return (
     <Carousel
       opts={{ loop: true, align: 'start' }}
@@ -21,17 +21,19 @@ export default function ProductsCarousel() {
       className="w-full"
     >
       <CarouselContent className="-ml-1 gap-3">
-        {Array.from({ length: 10 }).map((_, index) => (
+        {products.map((product) => (
           <CarouselItem
-            key={index}
+            key={product.id}
             className="h-fit w-60 pl-1 md:basis-1/2 lg:basis-1/3"
           >
             <div className="p-1">
               <ProductCard
-                name={'Gaming mouse'}
-                category={'electronics'}
-                rating={4.6}
-                price={100}
+                name={product.title}
+                category={product.category}
+                rating={product.rating.rate}
+                price={product.price}
+                ratingCount={product.rating.count}
+                imgSrc={product.image}
               />
             </div>
           </CarouselItem>
