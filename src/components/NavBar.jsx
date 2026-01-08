@@ -1,8 +1,15 @@
 import { NavLink } from 'react-router';
 import { ShoppingCartIcon } from 'lucide-react';
 
-function NavBar() {
+function NavBar({ cartItems }) {
   const activeLStyle = 'bg-neutral text-white rounded m-auto py-1 px-2';
+
+  const totalCartItems = cartItems.reduce(
+    (acc, item) => acc + item.quantity,
+    0,
+  );
+
+  console.log(cartItems);
 
   return (
     <nav className="page-padding flex justify-between py-2 font-bold shadow sm:px-14">
@@ -29,7 +36,7 @@ function NavBar() {
       <NavLink to={'/cart'} aria-label="cart">
         <div className="hover:bg-base-300 active:bg-base-300 relative flex h-10 w-10 items-center justify-center rounded-full border-none p-2 duration-200 ease-in-out sm:transition-colors">
           <div className="d-badge d-badge-neutral absolute -top-1.25 -right-1.25 h-4.5 min-w-4.5 rounded-full p-1 text-[10px] font-normal">
-            1
+            {totalCartItems}
           </div>
           <ShoppingCartIcon />
         </div>
