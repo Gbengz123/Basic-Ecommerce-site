@@ -11,6 +11,7 @@ const routes = [
       { path: '/', element: <Home />, errorElement: <ErrorPage /> },
       { path: '/shop', element: <Shop /> },
       { path: '/cart', element: <Cart /> },
+      { path: '/product', element: <Product /> },
     ],
   },
 ];
