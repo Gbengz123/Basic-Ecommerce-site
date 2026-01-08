@@ -7,6 +7,7 @@ function App() {
   const [shopData, setShopData] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [cartItems, setCartItems] = useState([]);
 
   useEffect(() => {
     const getShopData = async () => {
@@ -27,12 +28,56 @@ function App() {
     getShopData();
   }, []);
 
+  function handleItemAdd(product) {
+    setCartItems((prevcItems) => {
+      // Check for cart Item
+      const cartItem = prevcItems.find((item) => item.id === product.id);
+
+      if (cartItem) {
+        // Update cart Item quantity
+        return prevcItems.map((item) =>
+          item.id === cartItem.id
+            ? { ...item, quantity: item.quantity + 1 }
+            : item,
+        );
+      }
+      // Add to product cart
+      return [...prevcItems, { ...product, quantity: 1 }];
+    });
+  }
+
+  function handleRemoveItem(cartProduct, remove = true) {
+    setCartItems((prevcItems) => {
+      //Removes item from cart
+      if (cartProduct.quantity === 1 && remove) {
+        return prevcItems.filter((item) => item.id !== cartProduct.id);
+      }
+
+      //Reduces quantity
+      return prevcItems.map((item) =>
+        cartProduct.id === item.id && item.quantity > 1
+          ? { ...item, quantity: item.quantity - 1 }
+          : item,
+      );
+    });
+  }
+
   return (
     <>
       <div className="flex min-h-screen min-w-screen flex-col">
-        <NavBar />
+        <NavBar cartItems={cartItems} />
         <main className="flex grow flex-col">
-          <Outlet context={[error, loading, shopData]} />
+          <Outlet
+            context={[
+              error,
+              loading,
+              shopData,
+              cartItems,
+              handleItemAdd,
+              setCartItems,
+              handleRemoveItem,
+            ]}
+          />
         </main>
       </div>
     </>
