@@ -11,9 +11,13 @@ function ProductsSection({ showSkeleton, shopData }) {
       {!showSkeleton ? (
         <ProductsCarousel products={products} />
       ) : (
-        <div className="flex flex-wrap gap-5">
+        <div className="flex flex-wrap gap-3">
           {Array.from({ length: 4 }, (_, i) => i).map((index) => {
-            return <ProductCard key={index} showSkeleton={showSkeleton} />;
+            return (
+              <div className="xs:w-50 w-40 py-1 sm:w-60">
+                <ProductCard key={index} showSkeleton={showSkeleton} />
+              </div>
+            );
           })}
         </div>
       )}
