@@ -20,13 +20,13 @@ export default function ProductsCarousel({ products }) {
       ]}
       className="w-full"
     >
-      <CarouselContent className="-ml-1 gap-3">
+      <CarouselContent className="-ml-1 gap-1.25">
         {products.map((product) => (
           <CarouselItem
             key={product.id}
-            className="h-fit w-60 pl-1 md:basis-1/2 lg:basis-1/3"
+            className="h-fit pl-1 md:basis-1/2 lg:basis-1/3"
           >
-            <div className="p-1">
+            <div className="xs:w-50 w-40 py-1 sm:w-60">
               <ProductCard
                 name={product.title}
                 category={product.category}
