@@ -28,6 +28,8 @@ export default function ProductsCarousel({ products }) {
           >
             <div className="xs:w-50 w-40 py-1 sm:w-60">
               <ProductCard
+                key={product.id}
+                id={product.id}
                 name={product.title}
                 category={product.category}
                 rating={product.rating.rate}
