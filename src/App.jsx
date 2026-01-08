@@ -4,7 +4,7 @@ import NavBar from './components/NavBar';
 import { useEffect, useState } from 'react';
 
 function App() {
-  const [shopData, setShopData] = useState(null);
+  const [shopData, setShopData] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -27,7 +27,6 @@ function App() {
     getShopData();
   }, []);
 
-  console.log(shopData);
   return (
     <>
       <div className="flex min-h-screen min-w-screen flex-col">
