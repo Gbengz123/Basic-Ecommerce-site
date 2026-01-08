@@ -3,6 +3,7 @@ import { ShoppingCartIcon } from 'lucide-react';
 import StarRating from './StarRating';
 import StepperInput from './StepperInput';
 import { Skeleton } from './ui/skeleton';
+import { Link } from 'react-router';
 
 function ProductCardSkeleton() {
   return (
@@ -16,6 +17,7 @@ function ProductCardSkeleton() {
 }
 
 function ProductCard({
+  id,
   category,
   rating,
   name,
@@ -29,7 +31,11 @@ function ProductCard({
   return (
     <>
       {!showSkeleton ? (
-        <article className="xs:h-84.25 flex h-69.25 cursor-pointer flex-col border border-zinc-200 px-3 py-1.5 text-sm transition-transform duration-100 ease-linear hover:scale-[1.01] hover:shadow sm:text-base">
+        <Link
+          to={`/product/${id}`}
+          aria-label="product"
+          className="xs:h-84.25 flex h-69.25 cursor-pointer flex-col border border-zinc-200 px-3 py-1.5 text-sm transition-transform duration-100 ease-linear hover:scale-[1.01] hover:shadow sm:text-base"
+        >
           <img
             src={imgSrc}
             alt="product image"
@@ -56,7 +62,7 @@ function ProductCard({
               </button>
             )}
           </div>
-        </article>
+        </Link>
       ) : (
         <ProductCardSkeleton />
       )}
