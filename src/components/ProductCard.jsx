@@ -6,7 +6,7 @@ import { Skeleton } from './ui/skeleton';
 
 function ProductCardSkeleton() {
   return (
-    <div className="border-base-200 flex w-56 flex-col gap-2 border px-3 py-1.5">
+    <div className="border-base-200 flex flex-col gap-2 border px-3 py-1.5">
       <Skeleton className="h-45 w-full" />
       <Skeleton className="h-5 w-25" />
       <Skeleton className="h-5 w-full" />
@@ -29,8 +29,12 @@ function ProductCard({
   return (
     <>
       {!showSkeleton ? (
-        <article className="flex h-84.25 w-56 cursor-pointer flex-col border border-zinc-200 px-3 py-1.5 text-sm transition-transform duration-100 ease-linear hover:scale-[1.01] hover:shadow sm:text-base">
-          <img src={imgSrc} alt="product image" className="h-45 w-full" />
+        <article className="xs:h-84.25 flex h-69.25 cursor-pointer flex-col border border-zinc-200 px-3 py-1.5 text-sm transition-transform duration-100 ease-linear hover:scale-[1.01] hover:shadow sm:text-base">
+          <img
+            src={imgSrc}
+            alt="product image"
+            className="xs:h-45 h-30 w-full"
+          />
           <h4 className="mt-2 text-xs text-zinc-600">{category}</h4>
           <div className="flex items-center gap-1">
             <StarRating rating={rating} />
