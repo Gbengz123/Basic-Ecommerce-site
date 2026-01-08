@@ -1,6 +1,6 @@
 import { useId } from 'react';
 
-function StarRating({ rating, maxStars = 5, size = 18, productId }) {
+function StarRating({ rating, maxStars = 5, size = 18 }) {
   // Create an array for stars
   const stars = Array.from({ length: maxStars }, (_, i) => i);
   const uniqueId = useId();
