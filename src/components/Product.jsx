@@ -6,7 +6,15 @@ import ShopCategorySection from './ShopCategorySection';
 import ScrollToTop from './ScrollToTop';
 
 function Product() {
-  const [error, loading, shopData] = useOutletContext();
+  const [
+    error,
+    loading,
+    shopData,
+    cartItems,
+    handleItemAdd,
+    setCartItems,
+    handleRemoveItem,
+  ] = useOutletContext();
   const showSkeleton = loading || error;
   const { id } = useParams();
 
@@ -28,7 +36,14 @@ function Product() {
         ) : (
           <Skeleton className="h-100 w-125" />
         )}
-        <ProductInfo showSkeleton={showSkeleton} product={product} />
+        <ProductInfo
+          showSkeleton={showSkeleton}
+          product={product}
+          cartItems={cartItems}
+          handleItemAdd={handleItemAdd}
+          setCartItems={setCartItems}
+          handleRemoveItem={handleRemoveItem}
+        />
       </div>
       {product ? (
         <ShopCategorySection
