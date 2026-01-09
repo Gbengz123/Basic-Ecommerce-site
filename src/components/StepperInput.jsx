@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { PlusIcon, MinusIcon } from 'lucide-react';
 
 function StepperInput({
@@ -6,8 +5,11 @@ function StepperInput({
   handleItemAdd,
   setCartItems,
   handleRemoveItem,
+  className,
 }) {
-  function handleIncrease() {
+  function handleIncrease(e) {
+    e.preventDefault();
+    e.stopPropagation();
     handleItemAdd(cartProduct);
   }
 
@@ -24,14 +26,16 @@ function StepperInput({
     );
   }
 
-  function handleDecrease() {
+  function handleDecrease(e) {
+    e.preventDefault();
+    e.stopPropagation();
     handleRemoveItem(cartProduct);
   }
 
   return (
-    <div className="flex h-6.75 items-center gap-0.5">
+    <div className={`flex h-6.75 items-center gap-0.5 ${className}`}>
       <button
-        onClick={handleIncrease}
+        onClick={(e) => handleIncrease(e)}
         className="d-btn bg-neutral text-neutral-content h-full border-none p-1"
       >
         <PlusIcon height={15} width={20} />
@@ -42,9 +46,13 @@ function StepperInput({
         value={cartProduct.quantity}
         className="px-auto no-spinner h-full w-8 rounded border border-zinc-200 text-center text-sm"
         onChange={(e) => handleChange(e)}
+        onClick={(e) => {
+          e.preventDefault();
+          e.stopPropagation();
+        }}
       />
       <button
-        onClick={handleDecrease}
+        onClick={(e) => handleDecrease(e)}
         className="d-btn bg-neutral text-neutral-content h-full border-none p-1"
       >
         <MinusIcon height={15} width={20} />
