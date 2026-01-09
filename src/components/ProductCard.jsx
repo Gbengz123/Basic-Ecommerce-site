@@ -17,45 +17,55 @@ function ProductCardSkeleton() {
 }
 
 function ProductCard({
-  id,
-  category,
-  rating,
-  name,
-  imgSrc,
-  price,
+  product,
   showSkeleton,
-  ratingCount,
+  cartItems,
+  handleItemAdd,
+  setCartItems,
+  handleRemoveItem,
+  disabled,
 }) {
-  const [quantity, setQuantity] = useState(0);
+  const cartProduct = cartItems.find((item) => item.id === product.id);
 
   return (
     <>
       {!showSkeleton ? (
         <Link
-          to={`/product/${id}`}
+          to={`/product/${product.id}`}
           aria-label="product"
           className="xs:h-84.25 flex h-69.25 cursor-pointer flex-col border border-zinc-200 px-3 py-1.5 text-sm transition-transform duration-100 ease-linear hover:scale-[1.01] hover:shadow sm:text-base"
         >
           <img
-            src={imgSrc}
+            src={product.image}
             alt="product image"
             className="xs:h-45 h-30 w-full"
           />
-          <h4 className="mt-2 text-xs text-zinc-600">{category}</h4>
+          <h4 className="mt-2 text-xs text-zinc-600">{product.category}</h4>
           <div className="flex items-center gap-1">
-            <StarRating rating={rating} />
-            <span className="text-xs">{`(${ratingCount})`}</span>
+            <StarRating rating={product.rating.rate} />
+            <span className="text-xs">{`(${product.rating.count})`}</span>
           </div>
-          <h3 className="my-3 line-clamp-2">{name}</h3>
+          <h3 className="my-3 line-clamp-2">{product.title}</h3>
           <div className="mt-auto flex items-center">
-            <p className="font-semibold">${price}</p>
-            {quantity >= 1 ? (
-              <StepperInput />
+            <p className="font-semibold">${product.price}</p>
+            {cartProduct && !disabled ? (
+              <StepperInput
+                cartProduct={cartProduct}
+                handleItemAdd={handleItemAdd}
+                setCartItems={setCartItems}
+                handleRemoveItem={handleRemoveItem}
+                className={'ml-auto'}
+              />
             ) : (
               <button
                 aria-label="add to cart"
                 className="d-btn bg-neutral text-neutral-content ml-auto flex h-fit items-center gap-1 border-none px-2 py-1"
-                onClick={() => setQuantity((quantity) => quantity + 1)}
+                disabled={disabled}
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  handleItemAdd(product);
+                }}
               >
                 <span>Add</span>
                 <ShoppingCartIcon height={20} />
