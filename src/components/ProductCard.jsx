@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { ShoppingCartIcon } from 'lucide-react';
 import StarRating from './StarRating';
 import StepperInput from './StepperInput';
