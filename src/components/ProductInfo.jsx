@@ -3,6 +3,7 @@ import { Skeleton } from './ui/skeleton';
 import StarRating from './StarRating';
 import { ShoppingCartIcon } from 'lucide-react';
 import StepperInput from './StepperInput';
+import { Link } from 'react-router';
 
 function ProductInfoSkeleton() {
   return (
@@ -51,12 +52,20 @@ function ProductInfo({
               <ShoppingCartIcon height={20} />
             </button>
           ) : (
-            <StepperInput
-              cartProduct={cartProduct}
-              handleItemAdd={handleItemAdd}
-              setCartItems={setCartItems}
-              handleRemoveItem={handleRemoveItem}
-            />
+            <div className="flex items-center gap-3">
+              <StepperInput
+                cartProduct={cartProduct}
+                handleItemAdd={handleItemAdd}
+                setCartItems={setCartItems}
+                handleRemoveItem={handleRemoveItem}
+              />
+              <Link
+                to="/cart"
+                className="d-btn bg-neutral text-neutral-content flex items-center gap-1 border-none px-2 py-2"
+              >
+                Proceed to chekout
+              </Link>
+            </div>
           )}
         </section>
       ) : (
