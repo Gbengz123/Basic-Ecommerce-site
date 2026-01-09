@@ -9,8 +9,6 @@ function NavBar({ cartItems }) {
     0,
   );
 
-  console.log(cartItems);
-
   return (
     <nav className="page-padding flex justify-between py-2 font-bold shadow sm:px-14">
       <div className="flex gap-5">
