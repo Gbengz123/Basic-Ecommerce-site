@@ -1,7 +1,16 @@
 import React from 'react';
 import ProductCard from './ProductCard';
 
-function ShopCategorySection({ name, products, showSkeleton }) {
+function ShopCategorySection({
+  name,
+  products,
+  showSkeleton,
+  cartItems,
+  handleItemAdd,
+  setCartItems,
+  handleRemoveItem,
+}) {
+  console.log(cartItems, 'hi');
   return (
     <>
       <section className="">
@@ -13,21 +22,25 @@ function ShopCategorySection({ name, products, showSkeleton }) {
             <>
               {products.map((product) => (
                 <ProductCard
-                  id={product.id}
                   key={product.id}
-                  name={product.title}
-                  category={product.category}
-                  rating={product.rating.rate}
-                  price={product.price}
-                  ratingCount={product.rating.count}
-                  imgSrc={product.image}
+                  product={product}
+                  cartItems={cartItems}
+                  handleItemAdd={handleItemAdd}
+                  setCartItems={setCartItems}
+                  handleRemoveItem={handleRemoveItem}
                 />
               ))}
             </>
           ) : (
             <>
               {Array.from({ length: 4 }, (_, i) => i).map((index) => {
-                return <ProductCard key={index} showSkeleton={showSkeleton} />;
+                return (
+                  <ProductCard
+                    key={index}
+                    showSkeleton={showSkeleton}
+                    cartItems={cartItems}
+                  />
+                );
               })}
             </>
           )}
