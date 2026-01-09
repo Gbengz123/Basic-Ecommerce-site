@@ -49,11 +49,16 @@ function Product() {
         <ShopCategorySection
           name={`More in ${product.category}`}
           products={productCategory}
+          cartItems={cartItems}
+          handleItemAdd={handleItemAdd}
+          setCartItems={setCartItems}
+          handleRemoveItem={handleRemoveItem}
         />
       ) : (
         <ShopCategorySection
           products={productCategory}
           showSkeleton={showSkeleton}
+          cartItems={cartItems}
         />
       )}
     </div>
