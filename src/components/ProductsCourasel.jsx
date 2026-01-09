@@ -1,6 +1,5 @@
 import * as React from 'react';
 import AutoScroll from 'embla-carousel-auto-scroll';
-import { Card, CardContent } from '@/components/ui/card';
 import {
   Carousel,
   CarouselContent,
@@ -8,7 +7,7 @@ import {
 } from '@/components/ui/carousel';
 import ProductCard from './ProductCard';
 
-export default function ProductsCarousel({ products }) {
+export default function ProductsCarousel({ products, cartItems }) {
   return (
     <Carousel
       opts={{ loop: true, align: 'start' }}
@@ -29,13 +28,9 @@ export default function ProductsCarousel({ products }) {
             <div className="xs:w-50 w-40 py-1 sm:w-60">
               <ProductCard
                 key={product.id}
-                id={product.id}
-                name={product.title}
-                category={product.category}
-                rating={product.rating.rate}
-                price={product.price}
-                ratingCount={product.rating.count}
-                imgSrc={product.image}
+                product={product}
+                disabled={true}
+                cartItems={cartItems}
               />
             </div>
           </CarouselItem>
