@@ -10,7 +10,6 @@ function ShopCategorySection({
   setCartItems,
   handleRemoveItem,
 }) {
-  console.log(cartItems, 'hi');
   return (
     <>
       <section className="">
