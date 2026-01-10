@@ -46,12 +46,18 @@ function App() {
     });
   }
 
-  function handleRemoveItem(cartProduct, remove = true) {
+  function handleRemoveItem(cartProduct, remove) {
     setCartItems((prevcItems) => {
-      //Removes item from cart
-      if (cartProduct.quantity === 1 && remove) {
+      // Return if we are not removing anything
+      if (cartProduct.quantity === 1 && !remove) return prevcItems;
+
+      // Remove conditionally if quantiy is 1 (for stepperInput)
+      if (cartProduct.quantity === 1 && remove)
         return prevcItems.filter((item) => item.id !== cartProduct.id);
-      }
+
+      // Remove if quantity is > 1 (for trash icon)
+      if (cartProduct.quantity > 1 && remove)
+        return prevcItems.filter((item) => item.id !== cartProduct.id);
 
       //Reduces quantity
       return prevcItems.map((item) =>
