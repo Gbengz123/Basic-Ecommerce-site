@@ -54,6 +54,7 @@ function ProductCard({
                 setCartItems={setCartItems}
                 handleRemoveItem={handleRemoveItem}
                 className={'ml-auto'}
+                remove={true}
               />
             ) : (
               <button
