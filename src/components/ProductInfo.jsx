@@ -58,6 +58,7 @@ function ProductInfo({
                 handleItemAdd={handleItemAdd}
                 setCartItems={setCartItems}
                 handleRemoveItem={handleRemoveItem}
+                remove={true}
               />
               <Link
                 to="/cart"
