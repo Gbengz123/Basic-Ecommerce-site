@@ -15,7 +15,10 @@ function ProductsSection({ showSkeleton, shopData, cartItems }) {
           {Array.from({ length: 4 }, (_, i) => i).map((index) => {
             return (
               <div key={index} className="xs:w-50 w-40 py-1 sm:w-60">
-                <ProductCard showSkeleton={showSkeleton} />
+                <ProductCard
+                  showSkeleton={showSkeleton}
+                  cartItems={cartItems}
+                />
               </div>
             );
           })}
