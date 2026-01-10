@@ -6,6 +6,7 @@ function StepperInput({
   setCartItems,
   handleRemoveItem,
   className,
+  remove,
 }) {
   function handleIncrease(e) {
     e.preventDefault();
@@ -27,9 +28,11 @@ function StepperInput({
   }
 
   function handleDecrease(e) {
+    //Stepper removes item if if remove prop is true and quantity is 1
+    const removeItem = cartProduct.quantity === 1 && remove;
     e.preventDefault();
     e.stopPropagation();
-    handleRemoveItem(cartProduct);
+    handleRemoveItem(cartProduct, removeItem);
   }
 
   return (
