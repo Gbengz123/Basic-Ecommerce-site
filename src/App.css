@@ -1,9 +1,54 @@
 @import "tailwindcss";
 
+:root {
+  --gradient-border-to-center: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0) 50%,
+    rgba(0, 0, 0, 0.7) 100%
+  );
+}
+
 @theme {
   --color-neutral-light: oklch(37% 0.013 285.805);
+  --breakpoint-md: 759px;
+  --breakpoint-xs: 455px;
+}
+
+@layer base {
+  :root {
+    --border-gradient: lin
+  }
+}
+@layer utilities {
+  .page-padding {
+    @apply px-4 md:px-8 lg:px-16 xl:px-24 2xl:px-64;
+  }
 }
 @plugin "daisyui" {
   themes: light --default;
   prefix: "d-";
+}
+
+@font-face {
+  font-family: Roboto-mono;
+  src: url("./assets/fonts/RobotoMono-VariableFont_wght.ttf");
+  font-style: normal;
+}
+
+.no-spinner::-webkit-inner-spin-button,
+.no-spinner::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.no-spinner {
+  -moz-appearance: textfield;
+}
+
+.line-clamp-14 {
+  display: -webkit-box;
+  -webkit-line-clamp: 14;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
