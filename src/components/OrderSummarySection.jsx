@@ -3,10 +3,10 @@ import React from 'react';
 function OrderSummarySection({ cartItems }) {
   const delivery = 29.99;
   const tax = 39.99;
-  const total = cartItems.reduce(
-    (total, item) => total + item.price * item.quantity + delivery + tax,
-    0,
-  );
+  const total =
+    cartItems.reduce((total, item) => total + item.price * item.quantity, 0) +
+    delivery +
+    tax;
 
   return (
     <div className="min-w-60 flex-1 border border-zinc-200 p-3 sm:max-w-120 md:flex-initial">
