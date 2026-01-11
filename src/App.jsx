@@ -2,6 +2,7 @@ import './App.css';
 import { Navigate, Outlet } from 'react-router';
 import NavBar from './components/NavBar';
 import { useEffect, useState } from 'react';
+import Notification from './components/Notification';
 
 function App() {
   const [shopData, setShopData] = useState([]);
@@ -71,6 +72,7 @@ function App() {
   return (
     <>
       <div className="flex min-h-screen min-w-screen flex-col">
+        <Notification message={error} />
         <NavBar cartItems={cartItems} />
         <main className="flex grow flex-col">
           <Outlet
