@@ -18,8 +18,8 @@ describe('App routes', () => {
     render(<RouterProvider router={router} />);
   });
 
-  it('renders home page at /', () => {
-    const heroHeading = screen.getByRole('heading', {
+  it('renders home page at /', async () => {
+    const heroHeading = await screen.findByRole('heading', {
       name: /quality products/i,
     });
     expect(heroHeading).toBeInTheDocument();
@@ -43,5 +43,19 @@ describe('App routes', () => {
     });
 
     expect(cartHeading).toBeInTheDocument();
+  });
+
+  it('renders product page for dynamic route', async () => {
+    const productCards = await screen.findAllByRole('link', {
+      name: /product/i,
+    });
+
+    await user.click(productCards[0]);
+
+    const productDescription = await screen.findByRole('heading', {
+      name: /description/i,
+    });
+
+    expect(productDescription).toBeInTheDocument();
   });
 });
