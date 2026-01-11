@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeEach } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import App from '../App';
+import App from '../../App';
 import { createMemoryRouter, RouterProvider } from 'react-router';
 
 describe('App', () => {

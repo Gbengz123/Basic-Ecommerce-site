@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router';
 import { beforeEach, describe, expect, it } from 'vitest';
-import Hero from '../components/Hero';
+import Hero from '../Hero';
 
 describe('Hero', () => {
   beforeEach(() => {

@@ -1,5 +1,5 @@
 import { createMemoryRouter, Navigate, RouterProvider } from 'react-router';
-import routes from '../routes';
+import routes from '../../routes';
 import { beforeEach, describe, expect, it } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';

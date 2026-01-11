@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, it } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import NavBar from '../components/NavBar';
+import NavBar from '../NavBar';
 import { MemoryRouter } from 'react-router';
 
 let homeLink;
