@@ -6,12 +6,13 @@ import { MemoryRouter } from 'react-router';
 let homeLink;
 let shopLink;
 let cartLink;
+let cartItems = [{ quantity: 2 }, { quantity: 1 }];
 
 describe('navbar', () => {
   beforeEach(() => {
     render(
       <MemoryRouter>
-        <NavBar />
+        <NavBar cartItems={cartItems} />
       </MemoryRouter>,
     );
 
@@ -38,5 +39,10 @@ describe('navbar', () => {
     it('cart link goes to /cart', () => {
       expect(cartLink).toHaveAttribute('href', '/cart');
     });
+  });
+
+  it('shows total items in indicator', () => {
+    const indicator = screen.getByTestId('cart-indicator');
+    expect(indicator.textContent).toBe('3');
   });
 });
