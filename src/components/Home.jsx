@@ -9,7 +9,7 @@ function Home() {
   const showSkeleton = loading || error;
 
   return (
-    <div className="flex grow flex-col gap-8">
+    <div data-testid="home" className="flex grow flex-col gap-8">
       <Hero showSkeleton={showSkeleton} />
       <ProductsSection
         shopData={shopData}
